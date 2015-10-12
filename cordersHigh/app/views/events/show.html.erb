@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>coder's high</title>
+  <meta charset="UTF-8">
+</head>
+<body>
+
+<%= image_tag(@event["picture"]["data"]["url"], :size => "80x80") %><br>
+<%= @event["name"] %><br>
+<%= @event["datetime"] %><br>
+<%= @event["place"]["location"]["city"] %>
+<%= @event["place"]["location"]["country"] %>
+<%= @event["place"]["location"]["latitude"] %>
+<%= @event["place"]["location"]["longitude"] %>
+<%= @event["place"]["location"]["state"] %>
+<%= @event["place"]["location"]["street"] %>
+<%= @event["place"]["location"]["zip"] %><br><br>
+<%= @event["description"] %><br>
+attending memeber count :<%= @event["attending_count"] %>
+
+</body>
+</html>

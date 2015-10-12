@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>coder's high</title>
+  <meta charset="UTF-8">
+</head>
+<body>
+
+<% @events.each do |event| %>
+    <div class="field">
+      is next event? :<%= event["is_next"] %><br>
+      <%= image_tag(event["picture"]["data"]["url"], :size => "80x80") %><br>
+      <%= event["name"] %><br>
+      <%= event["datetime"] %><br>
+      attending memeber count :<%= event["attending_count"] %><br>
+      <%= event["place"]["location"]["city"] %>
+      <%= event["place"]["location"]["country"] %>
+      <%= event["place"]["location"]["latitude"] %>
+      <%= event["place"]["location"]["longitude"] %>
+      <%= event["place"]["location"]["state"] %>
+      <%= event["place"]["location"]["street"] %>
+      <%= event["place"]["location"]["zip"] %>
+      <%= link_to "詳細画面", event_path(event["id"]) %>
+      <br><br>
+    </div>
+<% end %>
+
+</body>
+</html>
