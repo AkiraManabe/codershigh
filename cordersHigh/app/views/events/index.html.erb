@@ -3,27 +3,189 @@
 <head>
   <title>coder's high</title>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <script src="/js/jquery.min.js"></script>
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <script src="js/basic.js"></script>
+
+  <!-- <link href="css/basic.min.css" rel="stylesheet"> -->
+  <link href="css/basic.css" rel="stylesheet">
 </head>
-<body>
+<body class="page_home">
 
-<% @events.each do |event| %>
-    <div class="field">
-      is next event? :<%= event["is_next"] %><br>
-      <%= image_tag(event["picture"]["data"]["url"], :size => "80x80") %><br>
-      <%= event["name"] %><br>
-      <%= event["datetime"] %><br>
-      attending memeber count :<%= event["attending_count"] %><br>
-      <%= event["place"]["location"]["city"] %>
-      <%= event["place"]["location"]["country"] %>
-      <%= event["place"]["location"]["latitude"] %>
-      <%= event["place"]["location"]["longitude"] %>
-      <%= event["place"]["location"]["state"] %>
-      <%= event["place"]["location"]["street"] %>
-      <%= event["place"]["location"]["zip"] %>
-      <%= link_to "詳細画面", event_path(event["id"]) %>
-      <br><br>
-    </div>
-<% end %>
+  <div class="allin">
+    <header class="topHeader">
+      <div class="widthFit">
+        <h1 class="footerBrand">
+          <a href="/"><img class="logoBrand" src="/img/logo_ch_head.png" alt="Coder's High"></a>
+        </h1>
+        <nav class="headerNav">
+          <ul class="navBarMenu list-unstyled">
+            <li class="menu nav-regist"><a href="regist.html">無料参加登録</a></li>
+            <li class="menu nav-login"><a href="login.html">ログイン</a></li>
+          </ul>
+          <dl class="navBarDrop list-unstyled">
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" href="#">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-menu">menu</span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li class="menu"><a href="#">Action</a></li>
+                <li class="menu"><a href="#">Another action</a></li>
+                <li class="menu"><a href="#">Something else here</a></li>
+                <li class="menu"><a href="#">Separated link</a></li>
+              </ul>
+            </li>
+          </dl>
+        </nav>
+      </div>
+    </header>
+    <main class="mainContainer">
+      <article class="topSuggest">
+        <div class="widthFit">
+          <section class="mainMessage">
+            <h1 class="dn">Coder's Highは</h1>
+            <img class="img" src="/img/img_suggestMain.png" alt="学んで作って楽しんで…アイディアをカタチにする。">
+            <img class="bg" src="/img/bg_suggestMain.png" alt="">
+          </section>
+          <section class="newSeminar">
+            <div id="jsiNewSeminar" class="newSeminarWrap">
+              <ol class="newSeminarControl list-unstyled">
+              </ol>
+              <ul class="newSeminarList seminarCassette list-unstyled">
 
+                <% @events.each_with_index do |event, i| %>
+                    <% if event["remaining"] > 0 %>
+                      <li class="seminarItem<% if i == 0 %> on<% end %>">
+                        <p class="seminarLimit">開催まであと<%= event["remaining"] %>日</p>
+                        <a href="#" class="seminarLink" title="<%= event["name"] %>">
+                          <div class="seminarImgWrap">
+                              <%= image_tag(event["cover"]["source"], :class => "seminarImg") %>
+                          </div>
+                          <div class="seminarItemInner">
+                            <h2 class="seminarHead" title="<%= event["name"] %>" data-shortTitle="<%= event["name"] %>"><%= event["name"] %></h2>
+                            <dl class="seminarDetail">
+                              <dt class="date"><i class="fa fa-calendar"></i><span class="sr-only">日付</span></dt>
+                              <dd class="dateDetail"><%= event["datetime"] %></dd>
+                              <dt class="place"><i class="fa fa-map-marker"></i></i><span class="sr-only">場所</span></dt>
+                              <dd class="placeDetail"><%= event["place"]["name"] %></dd>
+                            </dl>
+                            <%= link_to "イベントの詳細を見る", event_path(event["id"]), :class => "seminarBtn" %>
+                          </div>
+                        </a>
+                      </li>
+                    <% end %>
+                <% end %>
+
+              </ul>
+            </div>
+          </section>
+        </div>
+      </article>
+      <article class="topConcept">
+        <div class="widthFit">
+          <p class="comment">
+            「Coder’s High;」とは…texttexttexttexttexttexttexttexttexttext…<br>
+            なんちゃらかんちゃら…ぜひご参加ください。
+          </p>
+        </div>
+      </article>
+      <article class="topContent">
+        <div class="widthFit">
+          <section id="jsiNowSeminar" class="nowSeminar">
+            <h1 class="nowSeminarHead">イベント一覧</h1>
+            <ul class="nowSeminarList seminarCassette list-unstyled" id="jsEventItems">
+
+              <% @events.each do |event| %>
+                <li class="seminarItem on">
+                  <% if event["remaining"] > 0 %>
+                    <p class="seminarLimit">開催まであと<%= event["remaining"] %>日</p>
+                  <% elsif event["remaining"] == 0 %>
+                      <p class="seminarLimit">本日開催</p>
+                  <% else %>
+                      <p class="seminarLimit">開催済み</p>
+                  <% end %>
+                  <%= link_to(event_path(event["id"]), :class => 'seminarLink') do %>
+                    <div class="seminarImgWrap">
+                        <%= image_tag(event["cover"]["source"], :class => "seminarImg") %>
+                      <% if event["remaining"] < 0 %>
+                          <p class="seminarStatus">開催済み</p>
+                        <% end %>
+                    </div>
+                    <div class="seminarItemInner">
+                      <h2 class="seminarHead" title="<%= event["name"] %>" data-shortTitle="<%= event["name"] %>"><%= event["name"] %></h2>
+                      <dl class="seminarDetail">
+                        <dt class="date"><i class="fa fa-calendar"></i><span class="sr-only">日付</span></dt>
+                        <dd class="dateDetail"><%= event["datetime"] %></dd>
+                        <dt class="charge"><i class="fa fa-rmb"></i></i><span class="sr-only">参加料</span></dt>
+                        <dd class="chargeDetail">無料</dd>
+                        <dt class="place"><i class="fa fa-map-marker"></i></i><span class="sr-only">場所</span></dt>
+                        <dd class="placeDetail"><%= event["place"]["name"] %></dd>
+                      </dl>
+                    </div>
+                  <% end %>
+                </li>
+              <% end %>
+
+            </ul>
+            <button class="nowSeminarMore">
+              開催予定のイベント一覧をさらに表示<br>
+              <span class="glyphicon glyphicon glyphicon-chevron-down"></span>
+            </button>
+            <nav class="mySeminarPager dn">
+              <ul class="pagination">
+                <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&lt;</span></a></li>
+                <li class="active"><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#" aria-label="Next"><span aria-hidden="true">&gt;</span></a></li>
+              </ul>
+            </nav>
+          </section>
+        </div>
+      </article>
+    </main>
+  </div><!-- /.allin -->
+  <footer class="footer bg-gray">
+    <nav class="footerNav">
+      <div class="widthFit">
+        <ul class="list-unstyled">
+          <li><a href="#">HOME</a></li>
+          <li><a href="#">お知らせ</a></li>
+          <li><a href="#">Coder's Highとは？</a></li>
+          <li><a href="#">お問い合わせ</a></li>
+        </ul>
+      </div>
+    </nav>
+    <article class="footerSNS">
+      <dl class="footerAside">
+        <dt><a href="/"><img class="img" src="/img/logo_ch_foot.png" alt="Coder's High"></a></dt>
+        <dd>
+          コーダーの、コーダーによる、<br>
+          コーダーのためのウェブサイト
+        </dd>
+        <dd>
+          <a href="" class="faSNS fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i></a>
+          <a href="https://www.facebook.com/groups/319079944955732/" class="faSNS fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x fa-inverse"></i></a>
+        </dd>
+      </dl>
+    </article>
+    <small class="footerCopy">Copyright &copy; 2015, Coder's High All Rights Reserved.</small>
+  </footer>
+
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/image.position.js"></script>
 </body>
 </html>

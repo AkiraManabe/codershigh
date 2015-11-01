@@ -1,23 +1,128 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>coder's high</title>
+  <title>Coder's High | <%= @event["name"] %></title>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <script src="/js/jquery.min.js"></script>
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+  <script src="/js/basic.js"></script>
+
+  <!-- <link href="css/basic.min.css" rel="stylesheet"> -->
+  <link href="/css/basic.css" rel="stylesheet">
 </head>
-<body>
+<body class="page_home">
+<div class="allin">
+  <header class="topHeader">
+    <div class="widthFit">
+      <h1 class="headerBrand">
+        <a href="/codershigh"><img class="logoBrand" src="/img/logo_ch_head.png" alt="Coder's High"></a>
+      </h1>
+    </div>
+  </header>
+
+  <main class="mainContainer">
+    <article class="topDetail">
+      <div class="widthFit">
+        <section class="mainVisual">
+          <%= image_tag(@event["cover"]["source"]) %>
+        </section>
+      </div>
+    </article>
+    <article class="topContents">
+      <div class="widthFit">
+
+        <% if @event["remaining"] <= 0 %>
+          <div class="detailNotices">
+            <p class="notice noticeNormal"><i class="fa fa-exclamation-triangle"></i> このイベントは終了しました。</p>
+          </div>
+        <% end %>
+
+        <section class="mainDetail">
+          <h1 class="head" title="HTMLとCSSとJavascriptを一生懸命学んで身に着けよう！"><%= @event["name"] %></h1>
+          <div class="mainDetailInner">
+            <dl class="mainDetailList">
+              <dt>開催日</dt>
+              <dd><%= @event["datetime"] %></dd>
+              <dt>開催場所</dt>
+              <dd><%= @event["place"]["name"] %></dd>
+            </dl>
+
+            <ul class="mainDetailBtns">
+            <% if @event["remaining"] > 0 %>
+              <li><%= link_to("このイベントに参加する", @event["participate"], class: "mainDetailBtn") %></li>
+              <li><%= link_to("Facebookページ", @event["url"], class: "mainDetailBtn") %></li>
+            <% end %>
+            </ul>
+          </div>
+        </section>
+
+        <div class="contentDetail">
+          <section class="seminarInfo">
+            <div class="seminarInfoInner">
+              <h1 class="head"><i class="fa fa-file-text-o"></i> イベント詳細</h1>
+              <div class="body">
+                <% @event["description"].each_line do |line| %>
+                    <%= simple_format(convert_links(line)) %>
+                <% end %>
+              </div>
+            </div>
+          </section>
+          <section class="seminarSide">
+            <dl id="jsiEventMap" class="mapWrap" data-maphref="http://maji.asia/codershigh/index.html">
+              <dt class="mapDetail"><%= @event["place"]["name"] %></dt>
+              <dd class="mapFigure">
+                <figure id="mapFigure"></figure>
+              </dd>
+            </dl>
+          </section>
+        </div>
+
+      </div>
+    </article>
+  </main>
+
+</div><!-- /.allin -->
+<footer class="footer bg-gray">
+  <nav class="footerNav">
+    <div class="widthFit">
+      <ul class="list-unstyled">
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">お知らせ</a></li>
+        <li><a href="#">Coder's Highとは？</a></li>
+        <li><a href="#">お問い合わせ</a></li>
+      </ul>
+    </div>
+  </nav>
+  <article class="footerSNS">
+    <dl class="footerAside">
+      <dt><a href="/index.html"><img class="img" src="/img/logo_ch_foot.png" alt="Coder's High"></a></dt>
+      <dd>
+        <a href="https://www.facebook.com/groups/319079944955732/" class="faSNS fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x fa-inverse"></i></a>
+      </dd>
+    </dl>
+  </article>
+  <small class="footerCopy">Copyright &copy; 2015, Coder's High All Rights Reserved.</small>
+</footer>
+<script src="/js/bootstrap.min.js"></script>
+
 
 <%= image_tag(@event["picture"]["data"]["url"], :size => "80x80") %><br>
 <%= @event["name"] %><br>
 <%= @event["datetime"] %><br>
-<%= @event["place"]["location"]["city"] %>
-<%= @event["place"]["location"]["country"] %>
-<%= @event["place"]["location"]["latitude"] %>
-<%= @event["place"]["location"]["longitude"] %>
-<%= @event["place"]["location"]["state"] %>
-<%= @event["place"]["location"]["street"] %>
-<%= @event["place"]["location"]["zip"] %><br><br>
+<%= @event["place"]["name"] %>
 <%= @event["description"] %><br>
 attending memeber count :<%= @event["attending_count"] %>
+
+
 
 </body>
 </html>
