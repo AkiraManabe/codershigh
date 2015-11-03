@@ -7,11 +7,12 @@ APP_VER = "v2.5/"
 APP_ID = "534446970055025"
 APP_SECRET = "27f62b9ac1f42c60ed16e5841dfa919c"
 
+FACEBOOK_URL = "https://www.facebook.com/"
+
 class FbApi
   def initialize
     # get applications AccessToken ex. Corder's High App submietted Facebook Center
-    #@token = get_token
-    @token = 'CAACEdEose0cBAA9NuE0fDm9pbZAn3j4wHWyipk36QrY5snnPuOCm1t5hjwYgUk9U3WIkpEcGaNVts5Adk7IRkzb6rSlY77A2pFH0RHLUQTOuvcgA3e5BIkbtoWN5vUqOZBS4lwZB92xLRDuEwY3qju30RhtOeZAsiQ5MsAPWuIfvyQfPLmfuuJUZCDk4Vt8SqZAlZC0Kix6qBoczjb7H3t9'
+    @token = get_token
   end
 
   def get_fb_info(graph)
@@ -26,7 +27,7 @@ class FbApi
   # return @events = Array[Hash{},...]
   def get_events
     begin
-      graph = "1612054105726095/events?fields=picture,name,start_time,end_time,attending_count,place,description,updated_time"
+      graph = "1612054105726095/events?fields=picture,cover,name,start_time,end_time,attending_count,place,description,updated_time"
       events = get_fb_info(graph)["data"]
       format_events(events)
       return events
@@ -39,7 +40,7 @@ class FbApi
   # return @event = Hash{}
   def get_event(id)
     begin
-      graph = id + "?fields=picture,name,start_time,end_time,attending_count,place,description,updated_time"
+      graph = id + "?fields=picture,cover,name,start_time,end_time,attending_count,place,description,updated_time"
       event = get_fb_info(graph)
       format_event(event)
       return event
@@ -81,6 +82,10 @@ class FbApi
       event["start_time"] = ""
     else
       d = DateTime.parse(event["start_time"])
+
+      db = Date.parse(event["start_time"]) - Date.today
+      event["remaining"] = db.to_i
+
       datestr = d.strftime(DATE_PARSE)
       timestr = d.strftime(TIME_PARSE)
     end
@@ -107,6 +112,16 @@ class FbApi
     if event["attending_count"].blank?
       event["attending_count"] = 0
     end
+
+    unless event["description"].blank?
+      event["description"].each_line.with_index  do |line, i|
+        if /chouseisan\.com/ =~ line
+          event["participate"] = line
+        end
+      end
+    end
+
+    event["url"] = FACEBOOK_URL + "events/" + event["id"]
 
     event["is_next"] = false
 

@@ -1,23 +1,70 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>coder's high</title>
-  <meta charset="UTF-8">
-</head>
-<body>
+<% @page_name = @event["name"] %>
 
-<%= image_tag(@event["picture"]["data"]["url"], :size => "80x80") %><br>
-<%= @event["name"] %><br>
-<%= @event["datetime"] %><br>
-<%= @event["place"]["location"]["city"] %>
-<%= @event["place"]["location"]["country"] %>
-<%= @event["place"]["location"]["latitude"] %>
-<%= @event["place"]["location"]["longitude"] %>
-<%= @event["place"]["location"]["state"] %>
-<%= @event["place"]["location"]["street"] %>
-<%= @event["place"]["location"]["zip"] %><br><br>
-<%= @event["description"] %><br>
-attending memeber count :<%= @event["attending_count"] %>
+<div class="allin">
 
-</body>
-</html>
+  <%= render_layout "header" %>
+
+  <main class="mainContainer">
+    <article class="topDetail">
+      <div class="widthFit">
+        <section class="mainVisual">
+          <%= image_tag(@event["cover"]["source"]) %>
+        </section>
+      </div>
+    </article>
+    <article class="topContents">
+      <div class="widthFit">
+
+        <% if @event["remaining"] <= 0 %>
+          <div class="detailNotices">
+            <p class="notice noticeNormal"><i class="fa fa-exclamation-triangle"></i> このイベントは終了しました。</p>
+          </div>
+        <% end %>
+
+        <section class="mainDetail">
+          <h1 class="head" title="HTMLとCSSとJavascriptを一生懸命学んで身に着けよう！"><%= @event["name"] %></h1>
+          <div class="mainDetailInner">
+            <dl class="mainDetailList">
+              <dt>開催日</dt>
+              <dd><%= @event["datetime"] %></dd>
+              <dt>開催場所</dt>
+              <dd><%= @event["place"]["name"] %></dd>
+            </dl>
+
+            <ul class="mainDetailBtns">
+            <% if @event["remaining"] > 0 %>
+              <li><%= link_to("このイベントに参加する", @event["participate"], class: "mainDetailBtn") %></li>
+              <li><%= link_to("Facebookページ", @event["url"], class: "mainDetailBtn") %></li>
+            <% end %>
+            </ul>
+          </div>
+        </section>
+
+        <div class="contentDetail">
+          <section class="seminarInfo">
+            <div class="seminarInfoInner">
+              <h1 class="head"><i class="fa fa-file-text-o"></i> イベント詳細</h1>
+              <div class="body">
+                <% @event["description"].each_line do |line| %>
+                    <%= simple_format(convert_links(line)) %>
+                <% end %>
+              </div>
+            </div>
+          </section>
+          <section class="seminarSide">
+            <dl id="jsiEventMap" class="mapWrap" data-maphref="http://maji.asia/codershigh/index.html">
+              <dt class="mapDetail"><%= @event["place"]["name"] %></dt>
+              <dd class="mapFigure">
+                <figure id="mapFigure"></figure>
+              </dd>
+            </dl>
+          </section>
+        </div>
+
+      </div>
+    </article>
+  </main>
+
+</div><!-- /.allin -->
+
+<%= render_layout "footer" %>

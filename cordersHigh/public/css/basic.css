@@ -1,0 +1,1769 @@
+/* -------------------------
+general
+------------------------- */
+@import url(general.css);
+/* -------------------------
+bootstrap
+------------------------- */
+@import url(bootstrap.min.css);
+/* -------------------------
+フォント拡張
+------------------------- */
+@import url(font-awesome.min.css);
+
+
+/* -------------------------
+bootstrapのキャンセル 及び汎用
+------------------------- */
+html,
+body {
+    /*
+        font-family: Verdana, "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+    */
+}
+div.allin {
+}
+
+.navbar {
+    min-height: 40px;
+}
+.navbar-brand {
+    padding: 5px;
+    height: 40px;
+}
+.navbar-brand .logoBrand{
+    height:30px;
+    width:auto;
+}
+.navbar-nav > li > a {
+    padding: 10px;
+}
+.navbar {
+    border:none;
+}
+.navbar .dropdown-toggle {
+    line-height: 0;
+    font-size: 0;
+    border: none;
+    text-align: center;
+    width: 42px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 7px 0 0;
+    margin: 0;
+    background-color: #7e7e7e;
+    height: 40px;
+    margin-left: 2px;
+}
+.navbar-collapse .nav-regist,
+.navbar-collapse .nav-login {
+    width: 158px;
+    text-align: center;
+    background-color: #525252;
+}
+.navbar-collapse .nav-login {
+    margin-left: 2px;
+}
+
+.dropdown-toggle .icon-bar {
+    background-color: #ffffff;
+    line-height: 0;
+    border-radius: 0;
+    margin: 0 auto 3px;
+    font-size: 0;
+    padding: 0;
+    width: 18px;
+    height: 3px;
+    display: block;
+}
+.dropdown-toggle .icon-menu {
+    line-height: 10px;
+    margin: 0 auto 0;
+    font-size: 9px;
+    padding: 0;
+    color: #ffffff;
+}
+@media screen and (max-width: 767px){
+    .navbar .collapse{
+        display: block;
+        visibility: visible;
+    }
+    .navbar .dropdown {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .navbar .navbarVisible {
+        width: 100%;
+        margin: 0 -15px;
+        padding: 0;
+        border: none;
+    }
+    .navBarMenu {
+        padding: 0;
+        margin: 0;
+    }
+    .navBarMenu .nav-regist,
+    .navBarMenu .nav-login {
+        display: inline-block;
+        width: 100%;
+        margin: 0;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    .navBarDrop .dropdown {
+        width: 100%;
+    }
+    .navBarDrop .dropdown-toggle {
+        float: right;
+    }
+}
+
+
+
+
+/* -------------------------
+汎用
+------------------------- */
+/* コンテンツ内で1000pxを強制 */
+.widthFit {
+    max-width: 1000px;
+    margin-right: auto;
+    margin-left: auto;
+}
+/* リストの非リスト化 */
+.list-unstyled {
+    margin: 0;
+}
+
+/* -------------------------
+ヘッダ
+------------------------- */
+.topHeader {
+    background-color: #222222;
+    display: block;
+    position: absolute;
+    width: 100%;
+    min-height: 40px;
+}
+/* ヘッダーブランド
+------------------------- */
+.topHeader .headerBrand {
+    padding: 6px;
+    margin: 0 42px 0 0;
+    float: left;
+    line-height: 1;
+    position: relative;
+    z-index: 10;
+}
+.topHeader .logoBrand {
+    height: 26px;
+    width:auto;
+    vertical-align: bottom;
+    line-height: 1;
+}
+/* ヘッダーナビ
+------------------------- */
+.headerNav {
+    float: right;
+}
+/* 顕在メニュー */
+.navBarMenu {
+    float: left;
+    overflow: auto;
+}
+.navBarMenu .menu {
+    float: left;
+    display: inline-block;
+    width: 158px;
+    text-align: center;
+    background-color: #525252;
+}
+.navBarMenu .menu + .menu {
+    margin-left: 2px;
+}
+.navBarMenu .menu > a {
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    color: #ffffff;
+}
+.navBarMenu .menu:focus,
+.navBarMenu .menu:hover {
+    background-color: #888888;
+}
+/* 非顕在メニュー */
+.navBarDrop {
+    float: right;
+}
+.navBarDrop .dropdown-toggle {
+    display: block;
+    line-height: 0;
+    font-size: 0px;
+    border: medium none;
+    text-align: center;
+    width: 42px;
+    box-sizing: border-box;
+    padding: 7px 0px 0px;
+    margin: 0px 0px 0px 2px;
+    background-color: #7E7E7E;
+    height: 40px;
+}
+.navBarDrop .dropdown-menu {
+    left: auto;
+    right: 0px;
+}
+
+@media screen and (max-width: 767px){
+    .topHeader .widthfit {
+        position: relative;
+    }
+    /* ヘッダーブランド
+    ------------------------- */
+    .topHeader .headerBrand {
+        float: none;
+        text-align: center;
+    }
+    /* ヘッダーナビ
+    ------------------------- */
+    .headerNav {
+        float: none;
+    }
+    /* 顕在メニュー */
+    .navBarMenu {
+        float: none;
+    }
+    .navBarMenu .menu {
+        width: 50%;
+    }
+    .navBarMenu .menu + .menu {
+        margin-left: 0;
+    }
+    .navBarMenu .menu:nth-child(even) {
+        border-left: 2px solid #222222;
+    }
+    /* 非顕在メニュー */
+    .navBarDrop {
+        float: none;
+    }
+    .navBarDrop .dropdown {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    .navBarDrop .dropdown-menu {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        border: none;
+    }
+    .navBarDrop .menu {
+        clear:right;
+        background-color: #525252;
+        color: #ffffff;
+    }
+    .navBarDrop .dropdown-menu .menu:hover,
+    .navBarDrop .dropdown-menu .menu:focus {
+        background-color: #888888;
+    }
+    .navBarDrop .dropdown-menu .menu a{
+        color: #ffffff;
+        padding: 10px;
+    }
+    .dropdown-menu > li > a:hover,
+    .dropdown-menu > li > a:hover {
+        background-color: transparent;
+    }
+}
+/* -------------------------
+メインコンテンツ
+------------------------- */
+.mainContainer{
+    padding-top: 40px;
+}
+@media screen and (max-width: 767px){
+    .mainContainer{
+        padding-top: 80px;
+    }
+}
+
+/* -------------------------
+フォッター
+------------------------- */
+.footer {
+    margin-top: 60px;
+}
+/* フッターナビ
+------------------------- */
+.footerNav{
+    width: 100%;
+    display: block;
+    background-color: #343a3c;
+}
+.footerNav a{
+    color: #cccccc;
+}
+.footerNav a:hover,
+.footerNav a:focus {
+    color: #999999;
+}
+.footerNav ul {
+    margin: 0 auto;
+    padding: 10px;
+    text-align: center;
+}
+.footerNav ul > li {
+    display: inline-block;
+    width: 10em;
+    max-width: 25%;
+}
+.footerSNS {
+    color: #bbc3c5;
+    padding-top: 10px;
+}
+.footerAside {
+    display: -ms-flex;
+    display: -webkit-flex;
+    display: flex;
+
+    -ms-flex-flow: row wrap;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+
+    -ms-justify-content: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+
+    -ms-align-items: center;
+    -webkit-align-items: center;
+    align-items: center;
+
+    -ms-align-content: flex-start;
+    -webkit-align-content: flex-start;
+    align-content: flex-start;
+
+    margin: 0 auto 10px;
+}
+.footerSNS .faSNS {
+    cursor: pointer;
+}
+.footerSNS .img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+}
+.footerSNS .faSNS .fa-stack-2x{
+    color: #343a3c;
+}
+.footerSNS dt,
+.footerSNS dd {
+    padding: 0 10px;
+}
+.footerSNS dt a {
+    display: block;
+}
+.footerSNS dd{
+    font-size: 12px;
+}
+.footerSNS .faSNS:hover .fa-stack-2x{
+    color: #545e61;
+}
+.footerSNS .faSNS .fa-stack-1x{
+    color: #989ea0;
+}
+.footerSNS .faSNS:hover .fa-stack-1x{
+    color: #bbc3c5;
+}
+.footerCopy {
+    color: #bbc3c5;
+    display: block;
+    padding: 4px;
+    text-align: center;
+}
+@media screen and (min-width: 481px) and (max-width: 767px){
+    .footerNav ul {
+        display: -ms-flex;
+        display: -webkit-flex;
+        display: flex;
+        -ms-flex-flow: row wrap;
+        -webkit-flex-flow: row wrap;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        box-sizing: border-box;
+        margin:0 0 0 10px;
+        text-align: left;
+    }
+    .footerNav ul >li {
+        display: block;
+        width: 50%;
+        max-width: 50%;
+    }
+}
+@media screen and (max-width: 480px){
+    .footerNav ul {
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+    .footerNav ul >li {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+    }
+    .footerNav ul >li:hover,
+    .footerNav ul >li:focus {
+        background-color: #586265;
+    }
+    .footerNav ul >li a{
+        display: block;
+        padding: 10px;
+        width: 100%;
+        text-align: left;
+    }
+    .footerNav ul >li a:hover,
+    .footerNav ul >li a:focus {
+        text-decoration: none;
+        color: #ffffff;
+    }
+    .footerNav ul >li + li {
+        border-top: 1px solid #444444;
+    }
+
+}
+
+
+/* -------------------------
+ページ共通モジュール
+------------------------- */
+/* セミナーカセット
+------------------------- */
+.seminarItem {
+    display: block;
+    box-sizing: border-box;
+}
+.nowSeminarList .seminarItem {
+    opacity: 0;
+    -webkit-transition: opacity 200ms ease;
+    -moz-transition: opacity 200ms ease;
+    -ms-transition: opacity 200ms ease;
+    transition: opacity 200ms ease;
+}
+.nowSeminarList .seminarItem.is-visible {
+    opacity: 1;
+}
+.seminarLink,
+.seminarLink:hover,
+.seminarLink:focus {
+    display: block;
+    text-decoration: none;
+    color: #333333;
+}
+.seminarLimit {
+    color: #999999;
+    margin: 0 0 4px;
+    font-size: 12px;
+}
+.nowSeminarList .seminarImgWrap {
+    position: relative;
+    height: 120px;
+    overflow: hidden;
+}
+.seminarImg {
+    width: 100%;
+}
+.seminarStatus {
+    position: absolute;
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.85);
+    text-align: center;
+    top: 50%;
+    color: #ed622a;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 1;
+    margin-top: -18px;
+}
+.seminarHead {
+    background-color: #65b7dd;
+    display: block;
+    margin: 0;
+    color: #ffffff;
+    font-size: 18px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    font-weight: bold;
+    padding: 15px 15px;
+    overflow: hidden;
+}
+.seminarDetail {
+    line-height: 1.5;
+    padding: 0 10px 15px;
+    vertical-align: middle;
+    font-size: 14px;
+    margin: 0;
+}
+.seminarDetail > dt {
+    line-height: 1.5;
+    width: 1.5em;
+    color: #b4b4b4;
+    text-align: center;
+}
+.seminarDetail > dd {
+    line-height: 1.5;
+    margin: -1.5em 10px 4px 2em;
+    color: #666;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: bold;
+    overflow: hidden;
+}
+.participantsDetailInner{
+    background-color: #b6b6b6;
+    background-image: url("../img/bg_participants_amount.png");
+    background-repeat: no-repeat;
+    background-size: 0 100%;
+    background-position: center left;
+    overflow: hidden;
+    width: 100%;
+    line-height: 1;
+}
+.participantsDetailInner[data-participants="100"]{
+    background-image: url("../img/bg_participants_amountFull.png");
+}
+.participantsDetailInner > li{
+    line-height: 1;
+    display: inline-block;
+    padding: 4px;
+    width: 33.3%;
+    float: left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 12px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+}
+.participantsDetailInner > li:first-child{
+    text-align: left;
+}
+.participantsDetailInner > li:last-child{
+    text-align: right;
+}
+.seminarBtn{
+    border: none;
+    background-color: #ed622a;
+    color: #ffffff;
+    padding: 6px;
+    width: 100%;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 0;
+}
+.seminarCassette .seminarBtn:hover,
+.seminarCassette .seminarBtn:focus {
+    background-color: #f18155;
+}
+/* ページャー
+------------------------- */
+.pagination > li{
+    display: inline-block;
+    color: #999999;
+}
+.pagination > li:not(:first-child) + li:not(:last-child){
+    margin-left: 4px;
+}
+.pagination > li > a {
+    border: none;
+    background-color: #dddddd;
+    color: #999999;
+}
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+    background-color: #65b7dd;
+    color: #ffffff;
+}
+.pagination > li:hover > a,
+.pagination > li:focus > a {
+    background-color: #cccccc;
+    color: #000000;
+}
+.pagination > li:first-child > a,
+.pagination > li:last-child > a {
+    background-color: transparent;
+}
+
+/* モーダル
+------------------------- */
+.modal-open{
+    overflow: hidden;
+}
+.modal-backdrop{
+    background-color: #888888;
+}
+.modal-content {
+    border-radius: 0;
+    border:none;
+    background-color: #333333;
+    color: #333333;
+}
+.modal-title {
+    font-weight: bold;
+    color: #ffffff;
+}
+.modal-header {
+    border:none;
+}
+.modal-footer {
+    border: none;
+}
+.modal-footer {
+    border: none;
+}
+.modal-footer .btn{
+    border-radius: 0;
+}
+.modal-header .close{
+    color: #ffffff;
+    text-shadow: 0px 1px 0px #888888;
+    opacity: 0.75;
+}
+.modal-body {
+    background-color: #fff;
+}
+.modal-footer .btn-default {
+    border-color: #ffffff;
+}
+.modal-footer .btn-red {
+    background-color: #ED622A;
+    border-color: #ED622A;
+}
+.modal-footer .btn-red:hover {
+    background-color: #F18155;
+}
+@media screen and (max-width: 767px){
+    .modal-title {
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .modal-header {
+        padding: 10px;
+    }
+    .modal-footer {
+        padding-top: 0;
+        border: none;
+    }
+    .modal-body {
+        padding: 10px;
+    }
+    .modal-footer {
+        padding: 10px;
+    }
+}
+
+
+/* -------------------------
+トップページ
+------------------------- */
+/* サジェスション
+------------------------- */
+.topSuggest {
+    background-image:url("../img/bg_dotGray.png"), url("../img/bg_suggest.png");
+    background-size: auto, cover;
+}
+.topSuggest .widthFit {
+    height: 465px;
+}
+/* コンセプトボックス */
+.mainMessage {
+    max-width: 638px;
+    width: auto;
+    margin-right: 362px;
+    height: 465px;
+    position: relative;
+}
+.mainMessage .img{
+    max-width: 558px;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    left: 0;
+    z-index: 1;
+}
+.mainMessage .bg{
+    max-width: 548px;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 0;
+}
+/* 新着セミナー */
+.newSeminar {
+    margin-top: -465px;
+    width: 362px;
+    height: 465px;
+    background-color: rgba(255, 255, 255, 0.92);
+    float: right;
+    position: relative;
+}
+.newSeminar:before {
+    display: block;
+    content: "";
+    widows: 0;
+    height: 0;
+    position: absolute;
+    border-width: 0 50px 50px 0;
+    border-color: transparent #ED622A transparent transparent;
+    border-style: solid;
+    top: 0;
+    right: 0;
+}
+.newSeminar:after {
+    display: block;
+    content: "new";
+    font-size: 12px;
+    position: absolute;
+    color: #ffffff;
+    top: 3px;
+    right: 5px;
+    font-weight: bold;
+}
+.newSeminarWrap {
+    overflow: hidden;
+    padding: 28px 0 0;
+}
+.newSeminarControl {
+    width: 31px;
+    float: left;
+    min-height: 31px;
+}
+.newSeminarControl > .item{
+    width: 31px;
+    height: 26px;
+    box-sizing: border-box;
+    display: block;
+    text-align: center;
+    line-height: 0;
+}
+.newSeminarControl > .item > a{
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    background-color: #999999;
+    display: inline-block;
+}
+.newSeminarControl > .current > a{
+    background-color: #71bde1;
+}
+.newSeminarList {
+    width: 300px;
+    float: left;
+}
+.newSeminarList .seminarItem {
+    width: 300px;
+    display: none;
+}
+.newSeminarList .seminarLimit{
+    display: none;
+}
+.newSeminarList .seminarBtn{
+    position: absolute;
+    bottom: 0;
+    max-width: 300px;
+}
+.newSeminarList > .on {
+    display: block;
+}
+.newSeminarList .seminarItemInner {
+    height: 180px;
+    position: relative;
+}
+.newSeminarMore {
+    background-color: transparent;
+    border: none;
+    display: none;
+    width: 100%;
+    margin: 0 auto 10px;
+    color: #333333;
+    font-size: 14px;
+}
+.newSeminarMore:hover,
+.newSeminarMore:focus {
+    background-color: #64c8a4;
+    color: #ffffff;
+}
+@media screen and (max-width: 767px){
+    .topSuggest .widthFit {
+        height: auto;
+    }
+    .mainMessage {
+        max-width: 768px;
+        width: 100%;
+        margin: 0;
+        height: auto;
+        position: relative;
+        text-align: center;
+    }
+    .mainMessage .img{
+        width: 100%;
+        height: auto;
+        position: relative;
+        z-index: 1;
+        top:10px;
+    }
+    .mainMessage .bg{
+        width: 100%;
+        height: auto;
+        position: relative;
+        z-index: 0;
+        margin-top: -20%;
+    }
+    /* 新着セミナー */
+    .newSeminar {
+        margin: 0;
+        width: 100%;
+        height: auto;
+        background-color: #ffffff;
+        float: none;
+    }
+    .newSeminar:before {
+        display: none;
+    }
+    .newSeminar:after {
+        display: none;
+    }
+    .newSeminarWrap {
+        padding-top: 0;
+    }
+    .newSeminarControl,
+    .newSeminarList {
+        display: none;
+    }
+}
+/* コンセプト
+------------------------- */
+.topConcept {
+    background-color: #dddddd;
+    text-align: center;
+    color: #333333;
+    font-size: 16px;
+}
+.topConcept .widthFit{
+    padding: 20px 20px 16px;
+}
+.topConcept .comment{
+    text-align: left;
+    width:auto;
+    display: inline-block;
+}
+@media screen and (max-width: 767px){
+    .topConcept {
+        display: none;
+    }
+}
+/* 現在開催中のサークル
+------------------------- */
+.nowSeminarHead {
+    color: #656667;
+    font-size: 40px;
+    font-weight: normal;
+    padding: 10px;
+    margin: 20px 0 0;
+}
+.nowSeminarList {
+    display: -ms-flex;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-flow: row wrap;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    margin:0 0 0 10px;
+}
+.nowSeminarList .seminarItem{
+    width: 33.3%;
+    padding-right: 10px;
+    margin-bottom: 20px;
+    position: relative;
+    height: auto;
+}
+.nowSeminarList .seminarItemInner {
+    /*height: 160px;*/
+    position: relative;
+    background-color: #ebebeb;
+}
+.nowSeminarList .seminarHead {
+    background-color: transparent;
+    color: #333;
+}
+.nowSeminarList .seminarBtn {
+    display: none;
+}
+.nowSeminarMore {
+    background-color: transparent;
+    border: none;
+    display: none;
+    width: 100%;
+    margin: 0 auto 10px;
+    color: #333333;
+    font-size: 14px;
+}
+.nowSeminarMore:hover,
+.nowSeminarMore:focus {
+    background-color: #64c8a4;
+    color: #ffffff;
+}
+.nowSeminarPager{
+    margin: 0 auto;
+    text-align: center;
+}
+.nowSeminarPager .pagination{
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 767px){
+    .topConcept {
+        display: none;
+    }
+    .nowSeminarHead {
+        margin: 0;
+        background-color: #333333;
+        color: #cccccc;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 10px;
+    }
+    .nowSeminarList {
+        width: 100%;
+        margin:0;
+        overflow: hidden;
+        display: block;
+    }
+    .nowSeminarControl  {
+        display: none;
+    }
+    .nowSeminarList .seminarItem,
+    .nowSeminarList .on {
+        display: block;
+        max-width: 768px;
+        width: 100%;
+        padding: 10px;
+        position: relative;
+        overflow: hidden;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        margin-bottom: 0;
+    }
+    .nowSeminarList > .seminarItem + .seminarItem {
+        border-top: 1px solid #cccccc;
+    }
+    .nowSeminarList .seminarImgWrap {
+        width: 180px;
+        position: absolute;
+    }
+    .nowSeminarList .seminarHead {
+        height: auto;
+        overflow: visible;
+        white-space: normal;
+        word-break: break-all;
+        word-wrap: break-word;
+        font-size: 14px;
+        height: 36px;
+        margin-bottom: 10px;
+    }
+    .nowSeminarList .seminarItemInner {
+        width: auto;
+        margin-left: 180px;
+        height: 135px;
+        background-color: transparent;
+    }
+    .nowSeminarList .seminarDetail > .participants {
+        display: none;
+    }
+    .nowSeminarList .seminarDetail > .participantsDetail {
+        background-color: rgba(128, 128, 128, 0.75);
+        position: absolute;
+        width: 180px;
+        bottom: 0;
+        left: -180px;
+        padding: 8px 38px 8px 8px;
+        margin: 0;
+        font-size: 12px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    .nowSeminarList .participantsDetailInner{
+        height: 12px;
+    }
+    .nowSeminarList .participantsDetailInner:after{
+        content: attr(data-participants) "%";
+        font-family: monospace;
+        position: absolute;
+        bottom: 8px;
+        right: 8px;
+        color: #ffffff;
+        line-height: 1;
+    }
+    .nowSeminarList .participantsDetailInner > li{
+        display: none;
+    }
+    .nowSeminarList .seminarBtn{
+        display: none;
+    }
+    .nowSeminarMore {
+        display: block;
+    }
+}
+@media screen and (max-width: 480px){
+    .nowSeminarList {
+        font-size: 12px;
+    }
+    .nowSeminarList .seminarImgWrap {
+        width: 100px;
+    }
+    .nowSeminarList .seminarLimit {
+        line-height: 1;
+        padding-bottom: 0;
+    }
+    .nowSeminarList .seminarStatus {
+        font-size: 12px;
+        padding: 4px;
+    }
+    .nowSeminarList .seminarHead {
+        font-size: 12px;
+        line-height: 13px;
+        height: 24px;
+        padding-top: 0;
+        margin-bottom: 6px;
+    }
+    .nowSeminarList .seminarItemInner {
+        margin-left: 100px;
+        height: 75px;
+    }
+    .nowSeminarList .seminarDetail {
+        line-height: 1.2;
+        margin-bottom: 10px;
+        vertical-align: middle;
+        font-size: 10px;
+    }
+    .nowSeminarList .seminarDetail > dt{
+        line-height: 1.2;
+        width: 1.5em;
+        color: #b4b4b4;
+        text-align: center;
+    }
+    .nowSeminarList .seminarDetail > dd{
+        line-height: 1.2;
+        margin: -1.2em 2px 4px 2em;
+        color: #333333;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-weight: bold;
+        overflow: hidden;
+    }
+    .nowSeminarList .seminarDetail > .charge,
+    .nowSeminarList .seminarDetail > .chargeDetail {
+        display: none;
+    }
+    .nowSeminarList .seminarDetail > .participantsDetail {
+        width: 100px;
+        left: -100px;
+        padding: 4px 34px 4px 4px;
+        font-size: 10px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    .nowSeminarList .participantsDetailInner{
+        height: 10px;
+    }
+    .nowSeminarList .participantsDetailInner:after{
+        bottom: 4px;
+        right: 4px;
+    }
+}
+
+/* マイサークル
+------------------------- */
+.mySeminarHead {
+    color: #656667;
+    font-size: 40px;
+    font-weight: normal;
+    padding: 10px;
+    margin: 20px 0 0;
+}
+.mySeminarMenu {
+    padding:10px 10px 10px;
+}
+
+.mySeminarMenu > .btn,
+.mySeminarMenu > .btn-default:hover,
+.mySeminarMenu > .btn-default:focus,
+.mySeminarMenu > .btn-default.focus,
+.mySeminarMenu > .btn-default:active,
+.mySeminarMenu > .btn-default.active,
+.mySeminarMenu.open > .dropdown-toggle.btn-default {
+    border: none;
+    background-color: #dddddd;
+    color: #999999;
+    box-shadow: none;
+    position: relative;
+}
+.mySeminarMenu > .btn-default:hover,
+.mySeminarMenu > .btn-default:focus,
+.mySeminarMenu > .btn-default.focus,
+.mySeminarMenu > .btn-default:active,
+.mySeminarMenu > .btn-default.active {
+    background-color: #ed622a;
+    color: #ffffff;
+}
+.mySeminarMenu > .btn-default:active:after,
+.mySeminarMenu > .btn-default.active:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-width: 10px 10px 0 10px;
+    border-color: #ed622a transparent transparent;
+    border-style: solid;
+    bottom: -10px;
+    left: 50%;
+    margin-left: -10px;
+}
+.mySeminarList {
+    display: -ms-flex;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-flow: row wrap;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    margin:0;
+}
+.mySeminarList:not(.on) {
+    display: none;
+}
+.mySeminarList .seminarItem {
+    display: block;
+    max-width: 768px;
+    width: 50%;
+    padding: 10px;
+    position: relative;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 0;
+}
+.mySeminarList > .seminarItem + .seminarItem {
+}
+.mySeminarList .seminarImgWrap {
+    width: 180px;
+    position: absolute;
+}
+.mySeminarList .seminarHead {
+    font-size: 14px;
+    background-color: transparent;
+    color: #000000;
+}
+.mySeminarList .seminarItemInner {
+    width: auto;
+    margin-left: 180px;
+    height: 135px;
+    background-color: transparent;
+}
+.mySeminarList .seminarDetail > .charge,
+.mySeminarList .seminarDetail > .chargeDetail {
+    display: none;
+}
+.mySeminarList .seminarDetail > .participants {
+    display: none;
+}
+.mySeminarList .seminarDetail > .participantsDetail {
+    background-color: rgba(128, 128, 128, 0.75);
+    position: absolute;
+    width: 180px;
+    bottom: 0;
+    left: -180px;
+    padding: 8px 38px 8px 8px;
+    margin: 0;
+    font-size: 12px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.mySeminarList .participantsDetailInner{
+    height: 12px;
+}
+.mySeminarList .participantsDetailInner:after{
+    content: attr(data-participants) "%";
+    font-family: monospace;
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    color: #ffffff;
+    line-height: 1;
+}
+.mySeminarList .seminarLimit {
+    display: none;
+}
+.mySeminarList .seminarBtn{
+    display: none;
+}
+
+.mySeminarPager{
+    margin: 0 auto 30px;
+    text-align: center;
+}
+.mySeminarPager .pagination{
+    margin: 0 auto;
+}
+@media screen and (max-width: 767px){
+    .mySeminarHead {
+        margin: 0;
+        background-color: #333333;
+        color: #cccccc;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 10px;
+    }
+}
+@media screen and (min-width: 481px) and (max-width: 767px){
+    .mySeminarHead {
+        margin: 0px;
+        background-color: #333;
+        color: #CCC;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 10px;
+    }
+    .mySeminarList .seminarItem{
+        display: block;
+        margin: auto;
+        width: 100%;
+        border: none;
+        margin-top: 10px;
+        padding-bottom: 10px;
+    }
+}
+@media screen and (max-width: 480px){
+    .mySeminarList {
+        background-color: #dddddd;
+        padding-top: 10px;
+    }
+    .mySeminarList .seminarItem{
+        display: block;
+        margin: auto;
+        width: 100%;
+        border: none;
+        margin: 0 10px 10px;
+        background-color: #ffffff;
+        border-radius: 8px;
+    }
+    .mySeminarList .seminarImgWrap{
+        position: absolute;
+        width: 480px;
+        height: 360px;
+        top: 50%;
+        left: 50%;
+        margin-top: -180px;
+        margin-left: -240px;
+        opacity: 0.1;
+    }
+    .mySeminarList .seminarStatus{
+        display: none;
+
+    }
+    .mySeminarList .seminarItemInner{
+        margin-left: 0;
+        height: auto;
+    }
+}
+
+/* -------------------------
+イベント詳細ページ
+------------------------- */
+.topDetail {
+    background-image:url("../img/bg_dotGray.png"), url("../img/bg_topDetail.png");
+    background-size: auto, cover;
+}
+.topDetail .widthFit {
+    height: 460px;
+}
+.topDetail .mainVisual {
+    width: auto;
+    padding: 20px 0;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    height: 460px;
+}
+.topDetail .mainVisual img {
+    height: 100%;
+}
+.detailNotices .notice{
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #e8e8e8;
+    margin: 0;
+    padding: 14px 20px;
+}
+.detailNotices .noticeNormal {
+    background-color: #c4c864;
+    color: #f0f1d6;
+}
+
+.mainDetail {
+    background-color: #e8e8e8;
+    padding: 20px;
+}
+.mainDetail .head {
+    margin: 0;
+    display: block;
+    font-size: 22x;
+    font-weight: bold;
+}
+.mainDetailInner {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+}
+.mainDetailList {
+    display: -ms-flex;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-flow: row wrap;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    align-items: flex-start;
+    align-content: flex-start;
+    margin-top: -16px;
+    font-size: 16px;
+}
+.mainDetailList dt {
+    background-color: #65b7dd;
+    color: #ffffff;
+    width: 20%;
+    display: inline-block;
+    text-align: center;
+    margin-top: 16px;
+    padding: 4px 4px;
+}
+.mainDetailList dd {
+    width: 80%;
+    display: inline-block;
+    margin-top: 16px;
+    padding: 4px 20px;
+}
+.mainDetailBtns {
+    list-style: none;
+    text-align: center;
+}
+.mainDetailBtns li {
+    display: inline-block;
+    margin: 0 10px;
+}
+.mainDetailBtns li + li {
+    margin-top: 10px;
+}
+.mainDetailBtn {
+    border: none;
+    background-color: #ed622a;
+    color: #ffffff;
+    width: 300px;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 0;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 10px;
+}
+.mainDetailBtn:hover{
+    background-color: #f18155;
+    color: #ffffff;
+    text-decoration: none;
+}
+@media screen and (max-width: 767px){
+    .topDetail .widthFit {
+        max-width: 480px;
+        width: 100%;
+        height: auto;
+        padding: 20px;
+    }
+    .topDetail .mainVisual {
+        display: block;
+        position: static;
+        width: 100%;
+        padding-top: 0;
+        height: auto;
+    }
+    .topDetail .mainVisual .img{
+        display: block;
+        width: 100%;
+        position: static;
+        margin-left: 0;
+        border-radius: 10px 10px 0 0;
+    }
+    .topDetail .head{
+        border-radius: 0;
+    }
+    .mainDetail {
+        display: block;
+        margin-top: 0;
+        width: 100%;
+        height: auto;
+        background-color: rgba(255, 255, 255, 0.92);
+        float: none;
+        position: static;
+        border-radius: 10px 10px 0 0;
+
+    }
+    .mainDetailList {
+        max-height: none;
+        height: auto;
+    }
+    .mainDetailBtn{
+        display: block;
+        width: 100%;
+        position: static;
+        margin: 0;
+    }
+}
+@media screen and (max-width: 480px){
+    .topDetail .widthFit {
+        padding: 10px;
+    }
+    .mainDetailBtn.commentChange{
+        position: static;
+        width: auto;
+        margin: 0 auto 20px;
+    }
+    .mainDetailList {
+        display: block;
+    }
+    .mainDetailList dt{
+        display: block;
+        width: 100%;
+        margin-bottom: 0;
+    }
+}
+
+/* イベントの詳細
+------------------------- */
+.topContents {
+    padding-top: 20px;
+}
+.topContents .widthFit{
+    overflow: hidden;
+    position: relative;
+}
+.contentDetail {
+    margin-top: 20px;
+}
+.contentDetail:after {
+    display: table;
+    clear: both;
+    content: "";
+}
+.seminarInfo {
+    width: 640px;
+    float: left;
+}
+.seminarInfoInner {
+    background-color: #e8e8e8;
+    position: relative;
+    padding: 20px;
+}
+.seminarInfoInner > .head {
+    font-size: 20px;
+    margin: 0;
+    margin-bottom: 20px;
+    color: #666666;
+    font-weight: bold;
+}
+.seminarInfoInner > .seminarEdit {
+    text-decoration: none;
+    background-color: #888888;
+    color: #dddddd;
+    width: 160px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 0 16px;
+    border-radius: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+.seminarInfoInner > .seminarEdit:hover{
+    color: #ffffff;
+}
+.seminarInfoInner > .body{
+    background-color: #ffffff;
+    padding: 20px;
+    font-size: 16px;
+}
+.seminarSide {
+    width: 340px;
+    float: right;
+}
+@media screen and (min-width: 768px) and (max-width: 999px){
+    .seminarInfo {
+        width: auto;
+    }
+}
+@media screen and (max-width: 767px){
+    .topContents {
+        padding-top: 0;
+    }
+    .topContents .widthFit{
+        max-width: 480px;
+        width: 100%;
+        padding: 0;
+        margin: 0 auto;
+    }
+    .seminarInfo,
+    .seminarSide {
+        position: static;
+        margin: 0;
+        float: none;
+        width: 100%;
+    }
+}
+@media screen and (max-width: 480px){
+    .seminarInfo .notice{
+        padding: 4px 10px;
+    }
+    .seminarInfoInner {
+        padding: 10px;
+    }
+    .seminarInfoInner > .head {
+        margin-bottom: 10px;
+    }
+    .seminarInfoInner > .seminarEdit{
+        text-decoration: none;
+        background-color: #888888;
+        color: #dddddd;
+        width: 100%;
+        display: block;
+        position: static;
+        padding: 2px;
+        border-radius: 0;
+        text-align: right;
+
+    }
+    .seminarInfoInner > .body {
+        padding: 10px;
+        margin-bottom: 0;
+    }
+}
+
+
+/* マップ
+------------------------- */
+.mapWrap {
+    display: block;
+    height: 400px;
+    padding: 20px;
+    margin: 0;
+    background-color: #e8e8e8;
+}
+.mapDetail {
+    background-color: #ffffff;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.mapFigure {
+    width: 100%;
+    height: 300px;
+}
+.mapFigure figure {
+    width: 100%;
+    height: 100%;
+}
+@media screen and (max-width: 767px){
+    .mapWrap {
+        background-color: #e8e8e8;
+        padding: 0 20px 20px;
+    }
+    .mapDetail {
+        margin: 0;
+        background-color: #ffffff;
+        display: block;
+        width: auto;
+        position: static;
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        z-index: 1;
+        padding: 10px;
+        height: 60px;
+    }
+    .mapFigure {
+        display: block;
+        width: 100%;
+        height: 360px;
+        position: static;
+        top: 0;
+        left: 0;
+        z-index: 0;
+    }
+}
+@media screen and (max-width: 480px){
+    .mapWrap {
+        padding: 0 10px 10px;
+        height: 280px;
+    }
+    .mapFigure {
+        background-color: #ffffff;
+        padding: 0 10px 10px;
+        height: 210px;
+    }
+    .mapFigure figure{
+        height: 200px;
+    }
+}
+
+/* メンバー一覧
+------------------------- */
+.memberWrap {
+    margin-bottom: 20px;
+}
+.memberWrap .participants,
+.memberWrap .member {
+    padding-top: 20px;
+    color: #bbbbbb;
+    font-size: 16px;
+    padding-bottom: 8px;
+}
+.memberWrap .participantsDetailInner > li {
+    padding: 8px;
+    font-size: 16px;
+}
+.memberInner > li {
+    display: table;
+    border-spacing: 10px;
+    border-collapse: separate;
+    margin: 0 -10px;
+}
+.memberInner .memberInfo{
+    display: table-row;
+}
+.memberIcon,
+.memberName,
+.memberComment {
+    display: table-cell;
+    vertical-align: middle;
+}
+.memberIcon {
+
+}
+.memberImg {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+}
+.memberName {
+    width: 130px;
+}
+.memberComment {
+    width: 300px;
+    height: 50px;
+    border-radius: 5px;
+    margin-right: 10px;
+    background-color: #cccccc;
+    padding: 5px;
+}
+@media screen and (max-width: 767px){
+    .memberWrap {
+        margin: 10px 20px;
+    }
+}
+@media screen and (max-width: 480px){
+    .memberWrap {
+        margin: 0 10px;
+    }
+    .memberWrap .participants,
+    .memberWrap .member {
+        padding-top: 10px;
+    }
+    .memberInner > li {
+        display: block;
+        margin: 0;
+        width: 100%;
+    }
+    .memberInner .memberInfo{
+        display: block;
+        position: relative;
+        margin-bottom: 10px;
+    }
+    .memberIcon,
+    .memberName,
+    .memberComment {
+        display: inline-block;
+    }
+    .memberIcon {
+        width: 80px;
+    }
+    .memberImg {
+        width: 80px;
+        height: 80px;
+        border-radius: 4px 0 0 4px;
+    }
+    .memberName {
+        position: absolute;
+        width: auto;
+        left: 0;
+        right: 0;
+        padding: 4px;
+        background-color: #333333;
+        font-size: 12px;
+        line-height: 1;
+        color: #ffffff;
+        margin-left: 80px;
+        font-weight: bold;
+        border-radius: 0 4px 0 0;
+    }
+    .memberComment {
+        position: absolute;
+        width: auto;
+        top: 20px;
+        height: 60px;
+        left: 0;
+        right: -10px;
+        padding: 4px;
+        font-size: 12px;
+        margin-left: 80px;
+        font-weight: bold;
+        border-radius: 0 0 5px 0;
+    }
+}
