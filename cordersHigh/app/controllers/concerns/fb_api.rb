@@ -2,23 +2,17 @@ require 'json'
 require 'net/https'
 require "date"
 
-# URL_FB = "https://graph.facebook.com/"
-# APP_VER = "v2.5/"
-# APP_ID = "534446970055025"
-# APP_SECRET = "27f62b9ac1f42c60ed16e5841dfa919c"
-
 URL_FB = "https://graph.facebook.com/"
-APP_VER = "v2.3/"
-APP_ID = "105563423118705"
-APP_SECRET = "5592dabbefff9f9b1fac8ccc36584b5d"
+APP_VER = "v2.5/"
+APP_ID = "534446970055025"
+APP_SECRET = "27f62b9ac1f42c60ed16e5841dfa919c"
 
 FACEBOOK_URL = "https://www.facebook.com/"
 
 class FbApi
   def initialize
     # get applications AccessToken ex. Corder's High App submietted Facebook Center
-    #@token = get_token
-    @token = 'CAABgAmZAWFXEBAKWIJl9MZCCHpIwMz4QqVobmrkLHVZA0Fi8m4MZBZBIWOAbDgo8iDOjGIjx3XZAp2A3OA40YDRUQtQZBaa8frFZC9inXwBMcv49KbD2mYhFpmVnbPHJgDNNci6YdG80VG6gipSbR7u2RtXjm6iNkf2ZBTiYZBSWlcTSxFfRFilLDZAIEHGyrVgeMZCS3igNmgvypoKy3sZATdBbU'
+    @token = get_token
   end
 
   def get_fb_info(graph)
@@ -33,8 +27,7 @@ class FbApi
   # return @events = Array[Hash{},...]
   def get_events
     begin
-      # graph = "1612054105726095/events?fields=picture,name,start_time,end_time,attending_count,place,description,updated_time"
-      graph = "319079944955732/events?fields=picture,cover,name,start_time,end_time,attending_count,place,description,updated_time"
+      graph = "1612054105726095/events?fields=picture,cover,name,start_time,end_time,attending_count,place,description,updated_time"
       events = get_fb_info(graph)["data"]
       format_events(events)
       return events
