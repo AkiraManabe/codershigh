@@ -18,7 +18,7 @@ class FbApi
   def initialize
     # get applications AccessToken ex. Corder's High App submietted Facebook Center
     #@token = get_token
-    @token = 'CAABgAmZAWFXEBAEooh0eFoDSb9HDNfhb8eVDfNHDnGxZBNe4fkAzyrZAkZApZAZAw9ZAx43gsZCborJ8UboJIl6rJGjtAudZAg9B6mG2dJRUMBCE1eBy0kK0fyBP29TIAtyGtUFrLw4WQQZBJ6S8MPPtVbfP0ObUyHV9YjcrDdGX9FZBSS9ZAAZCxvLQJFWfdHk9KCVn2uxx2vOyzDfCyZCi9RBRqY'
+    @token = 'CAABgAmZAWFXEBAKWIJl9MZCCHpIwMz4QqVobmrkLHVZA0Fi8m4MZBZBIWOAbDgo8iDOjGIjx3XZAp2A3OA40YDRUQtQZBaa8frFZC9inXwBMcv49KbD2mYhFpmVnbPHJgDNNci6YdG80VG6gipSbR7u2RtXjm6iNkf2ZBTiYZBSWlcTSxFfRFilLDZAIEHGyrVgeMZCS3igNmgvypoKy3sZATdBbU'
   end
 
   def get_fb_info(graph)

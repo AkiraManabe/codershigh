@@ -18,11 +18,7 @@
         }
 
         Position.prototype.init = function() {
-            var self = this;
-
-            $(window).on('resize load', function() {
-                self.setEvent();
-            });
+            $(window).on('resize load', this.setEvent.bind(this));
         };
 
         Position.prototype.setEvent = function() {

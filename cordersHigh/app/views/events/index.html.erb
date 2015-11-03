@@ -1,55 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>coder's high</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="keywords" content="">
-  <meta name="description" content="">
-  <script src="/js/jquery.min.js"></script>
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-  <![endif]-->
-  <script src="js/basic.js"></script>
-
-  <!-- <link href="css/basic.min.css" rel="stylesheet"> -->
-  <link href="css/basic.css" rel="stylesheet">
-</head>
-<body class="page_home">
 
   <div class="allin">
-    <header class="topHeader">
-      <div class="widthFit">
-        <h1 class="footerBrand">
-          <a href="/"><img class="logoBrand" src="/img/logo_ch_head.png" alt="Coder's High"></a>
-        </h1>
-        <nav class="headerNav">
-          <ul class="navBarMenu list-unstyled">
-            <li class="menu nav-regist"><a href="regist.html">無料参加登録</a></li>
-            <li class="menu nav-login"><a href="login.html">ログイン</a></li>
-          </ul>
-          <dl class="navBarDrop list-unstyled">
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" href="#">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-menu">menu</span>
-              </a>
-              <ul class="dropdown-menu" role="menu">
-                <li class="menu"><a href="#">Action</a></li>
-                <li class="menu"><a href="#">Another action</a></li>
-                <li class="menu"><a href="#">Something else here</a></li>
-                <li class="menu"><a href="#">Separated link</a></li>
-              </ul>
-            </li>
-          </dl>
-        </nav>
-      </div>
-    </header>
+
+    <%= render_layout "header" %>
+
     <main class="mainContainer">
       <article class="topSuggest">
         <div class="widthFit">
@@ -158,34 +111,5 @@
       </article>
     </main>
   </div><!-- /.allin -->
-  <footer class="footer bg-gray">
-    <nav class="footerNav">
-      <div class="widthFit">
-        <ul class="list-unstyled">
-          <li><a href="#">HOME</a></li>
-          <li><a href="#">お知らせ</a></li>
-          <li><a href="#">Coder's Highとは？</a></li>
-          <li><a href="#">お問い合わせ</a></li>
-        </ul>
-      </div>
-    </nav>
-    <article class="footerSNS">
-      <dl class="footerAside">
-        <dt><a href="/"><img class="img" src="/img/logo_ch_foot.png" alt="Coder's High"></a></dt>
-        <dd>
-          コーダーの、コーダーによる、<br>
-          コーダーのためのウェブサイト
-        </dd>
-        <dd>
-          <a href="" class="faSNS fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i></a>
-          <a href="https://www.facebook.com/groups/319079944955732/" class="faSNS fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x fa-inverse"></i></a>
-        </dd>
-      </dl>
-    </article>
-    <small class="footerCopy">Copyright &copy; 2015, Coder's High All Rights Reserved.</small>
-  </footer>
 
-  <script src="/js/bootstrap.min.js"></script>
-  <script src="/js/image.position.js"></script>
-</body>
-</html>
+<%= render_layout "footer" %>

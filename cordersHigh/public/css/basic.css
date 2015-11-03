@@ -292,6 +292,9 @@ div.allin {
 /* -------------------------
 フォッター
 ------------------------- */
+.footer {
+    margin-top: 60px;
+}
 /* フッターナビ
 ------------------------- */
 .footerNav{
@@ -488,31 +491,31 @@ div.allin {
     display: block;
     margin: 0;
     color: #ffffff;
-    font-size: 16px;
+    font-size: 18px;
     white-space: nowrap;
     text-overflow: ellipsis;
     width: 100%;
     font-weight: bold;
-    padding: 10px;
+    padding: 15px 15px;
     overflow: hidden;
-    line-height: 16px;
 }
 .seminarDetail {
     line-height: 1.5;
-    margin-bottom: 10px;
+    padding: 0 10px 15px;
     vertical-align: middle;
-    font-size: 12px;
+    font-size: 14px;
+    margin: 0;
 }
-.seminarDetail > dt{
+.seminarDetail > dt {
     line-height: 1.5;
     width: 1.5em;
     color: #b4b4b4;
     text-align: center;
 }
-.seminarDetail > dd{
+.seminarDetail > dd {
     line-height: 1.5;
     margin: -1.5em 10px 4px 2em;
-    color: #333333;
+    color: #666;
     white-space: nowrap;
     text-overflow: ellipsis;
     font-weight: bold;
@@ -904,13 +907,13 @@ div.allin {
     height: auto;
 }
 .nowSeminarList .seminarItemInner {
-    height: 160px;
+    /*height: 160px;*/
     position: relative;
     background-color: #ebebeb;
 }
 .nowSeminarList .seminarHead {
     background-color: transparent;
-    color: #000000;
+    color: #333;
 }
 .nowSeminarList .seminarBtn {
     display: none;
@@ -1596,16 +1599,12 @@ div.allin {
 }
 .mapDetail {
     background-color: #ffffff;
-    top: 0;
-    left: 0;
-    z-index: 1;
     padding: 10px;
+    margin-bottom: 20px;
 }
 .mapFigure {
-    display: block;
     width: 100%;
-    height: 100%;
-    margin-top: 20px;
+    height: 300px;
 }
 .mapFigure figure {
     width: 100%;
