@@ -4,15 +4,17 @@ require "date"
 
 URL_FB = "https://graph.facebook.com/"
 APP_VER = "v2.5/"
-APP_ID = "534446970055025"
-APP_SECRET = "27f62b9ac1f42c60ed16e5841dfa919c"
+APP_ID = "407780442764736"
+APP_SECRET = "9db36a17f453578eba37749c07d454c4"
+GROUP_ID = "319079944955732"
 
 FACEBOOK_URL = "https://www.facebook.com/"
 
 class FbApi
   def initialize
     # get applications AccessToken ex. Corder's High App submietted Facebook Center
-    @token = get_token
+    # @token = get_token
+    @token = 'CAAFy38hv9cABACEF3vmzcPRIGA0ZC5gxt7vDGMzGAjnVbstzmIgtHzWZC4Ljfi0qw0F17DZC8woQPtONTT6ZB5W5vKvt3YpZBEfKExE3XV5eZCeOBwar7cYIWTIgxfETrRfCxsVE0qZCxJqoTdowrZBeZBf57rZClnckmDC8Kw2F7fZBRmjr3yPe1u4fCLncAZBnyKNTuVDQ1WiVdwZDZD'
   end
 
   def get_fb_info(graph)
@@ -27,8 +29,12 @@ class FbApi
   # return @events = Array[Hash{},...]
   def get_events
     begin
-      graph = "1612054105726095/events?fields=picture,cover,name,start_time,end_time,attending_count,place,description,updated_time"
-      events = get_fb_info(graph)["data"]
+      graph = GROUP_ID + "/events?fields=picture,cover,name,start_time,end_time,attending_count,place,description,updated_time"
+      events = get_fb_info(graph)
+      events = events["data"]
+      if events.blank?
+        events = Array.new(0)
+      end
       format_events(events)
       return events
     rescue => e
@@ -54,22 +60,18 @@ class FbApi
   TIME_PARSE = "%H:%M"
 
   def format_events(events)
-    is_next = true
     events.each { |event|
-
       format_event(event)
-
-      # TODO Is it no ploblem get most new date event
-      event["is_next"] = is_next
-      if is_next
-        is_next = false
-      end
     }
   end
 
   private def format_event(event)
     if event["picture"].blank?
       event["picture"] = {"data" => {"is_silhouette" => "", "url" => ""}}
+    end
+
+    if event["cover"].blank?
+      event["cover"] = {"source" => ""}
     end
 
     if event["name"].blank?
@@ -83,7 +85,7 @@ class FbApi
     else
       d = DateTime.parse(event["start_time"])
 
-      db = Date.parse(event["start_time"]) - Date.today
+      db = Date.parse(event["start_time"]) - Date.today + 1
       event["remaining"] = db.to_i
 
       datestr = d.strftime(DATE_PARSE)
@@ -122,8 +124,6 @@ class FbApi
     end
 
     event["url"] = FACEBOOK_URL + "events/" + event["id"]
-
-    event["is_next"] = false
 
   end
 

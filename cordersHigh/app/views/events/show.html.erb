@@ -33,7 +33,9 @@
 
             <ul class="mainDetailBtns">
             <% if @event["remaining"] > 0 %>
-              <li><%= link_to("このイベントに参加する", @event["participate"], class: "mainDetailBtn") %></li>
+              <% if false %>
+                <li><%= link_to("このイベントに参加する", @event["participate"], class: "mainDetailBtn") %></li>
+              <% end %>
               <li><%= link_to("Facebookページ", @event["url"], class: "mainDetailBtn") %></li>
             <% end %>
             </ul>

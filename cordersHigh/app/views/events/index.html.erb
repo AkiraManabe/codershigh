@@ -18,7 +18,7 @@
               <ul class="newSeminarList seminarCassette list-unstyled">
 
                 <% @events.each_with_index do |event, i| %>
-                    <% if event["remaining"] > 0 %>
+                    <% if event["remaining"] >= 0 %>
                       <li class="seminarItem<% if i == 0 %> on<% end %>">
                         <p class="seminarLimit">開催まであと<%= event["remaining"] %>日</p>
                         <a href="#" class="seminarLink" title="<%= event["name"] %>">
@@ -48,8 +48,8 @@
       <article class="topConcept">
         <div class="widthFit">
           <p class="comment">
-            「Coder’s High;」とは…texttexttexttexttexttexttexttexttexttext…<br>
-            なんちゃらかんちゃら…ぜひご参加ください。
+            「Coder’s High;」は、プログラミング学習を活動のメインとする社会人サークルです。<br>
+            HTML5やCSS3、JavaScript、jQuery、ruby on rails、PHP、MySQL、WordPress、Javaなどを中心に、月に1回から2回程度の勉強会を開催しています。
           </p>
         </div>
       </article>
