@@ -1,6 +1,6 @@
 worker_processes 2
 
-listen 8080, :tcp_nopush => true
+listen 80, :tcp_nopush => true
 
 listen '/tmp/unicorn.sock'
 pid '/tmp/unicorn.pid'
