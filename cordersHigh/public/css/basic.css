@@ -810,6 +810,9 @@ div.allin {
     background-color: #64c8a4;
     color: #ffffff;
 }
+.comingSoonImg {
+    margin: 20px;
+}
 @media screen and (max-width: 767px){
     .topSuggest .widthFit {
         height: auto;

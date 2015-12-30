@@ -17,8 +17,11 @@
               </ol>
               <ul class="newSeminarList seminarCassette list-unstyled">
 
+                <% newEventsCount = 0 %>
+
                 <% @events.each_with_index do |event, i| %>
                     <% if event["remaining"] >= 0 %>
+                      <% newEventsCount += 1 %>
                       <li class="seminarItem<% if i == 0 %> on<% end %>">
                         <p class="seminarLimit">開催まであと<%= event["remaining"] %>日</p>
                         <a href="#" class="seminarLink" title="<%= event["name"] %>">
@@ -38,6 +41,10 @@
                         </a>
                       </li>
                     <% end %>
+                <% end %>
+
+                <% if newEventsCount == 0 %>
+                    <img class="comingSoonImg" src="/img/img_comingSoon.png" alt="coming soon">
                 <% end %>
 
               </ul>
